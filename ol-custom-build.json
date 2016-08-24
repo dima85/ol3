@@ -1,0 +1,38 @@
+{
+  "exports": [
+    "ol.Map",
+    "ol.Map#addControl",
+    "ol.View",
+    "ol.control.defaults",
+    "ol.layer.Tile",
+    "ol.source.Pixel",
+    "ol.proj.Projection",
+    "ol.control.OverviewMap",
+    "ol.control.ZoomSlider",
+    "ol.control.MousePosition",
+    "ol.control.ScaleLine",
+    "ol.proj.addProjection",
+    "ol.proj.addCoordinateTransforms"
+  ],
+  "compile": {
+    "externs": [
+      "externs/bingmaps.js",
+      "externs/closure-compiler.js",
+      "externs/geojson.js",
+      "externs/oli.js",
+      "externs/olx.js",
+      "externs/proj4js.js",
+      "externs/tilejson.js",
+      "externs/topojson.js"
+    ],
+    "define": [
+      "goog.DEBUG=true",
+      "ol.DEFAULT_TILE_SIZE=512"
+    ],
+    "extra_annotation_name": [
+      "api", "observable"
+    ],
+    "compilation_level": "ADVANCED",
+    "manage_closure_dependencies": true
+  }
+}

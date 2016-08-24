@@ -1,4 +1,4 @@
-goog.provide('ol.source.Zoomify');
+goog.provide('ol.source.Pixel');
 
 goog.require('ol');
 goog.require('ol.ImageTile');
@@ -13,7 +13,7 @@ goog.require('ol.tilegrid.TileGrid');
 /**
  * @enum {string}
  */
-ol.source.ZoomifyTierSizeCalculation = {
+ol.source.PixelTierSizeCalculation = {
   DEFAULT: 'default',
   TRUNCATED: 'truncated'
 };
@@ -21,21 +21,21 @@ ol.source.ZoomifyTierSizeCalculation = {
 
 /**
  * @classdesc
- * Layer source for tile data in Zoomify format.
+ * Layer source for tile data in Pixel format.
  *
  * @constructor
  * @extends {ol.source.TileImage}
- * @param {olx.source.ZoomifyOptions=} opt_options Options.
+ * @param {olx.source.PixelOptions=} opt_options Options.
  * @api stable
  */
-ol.source.Zoomify = function(opt_options) {
+ol.source.Pixel = function(opt_options) {
 
   var options = opt_options || {};
 
   var size = options.size;
   var tierSizeCalculation = options.tierSizeCalculation !== undefined ?
       options.tierSizeCalculation :
-      ol.source.ZoomifyTierSizeCalculation.DEFAULT;
+      ol.source.PixelTierSizeCalculation.DEFAULT;
 
   var imageWidth = size[0];
   var imageHeight = size[1];
@@ -43,7 +43,7 @@ ol.source.Zoomify = function(opt_options) {
   var tileSize = ol.DEFAULT_TILE_SIZE;
 
   switch (tierSizeCalculation) {
-    case ol.source.ZoomifyTierSizeCalculation.DEFAULT:
+    case ol.source.PixelTierSizeCalculation.DEFAULT:
       while (imageWidth > tileSize || imageHeight > tileSize) {
         tierSizeInTiles.push([
           Math.ceil(imageWidth / tileSize),
@@ -53,7 +53,7 @@ ol.source.Zoomify = function(opt_options) {
       }
       console.log(tierSizeInTiles);
       break;
-    case ol.source.ZoomifyTierSizeCalculation.TRUNCATED:
+    case ol.source.PixelTierSizeCalculation.TRUNCATED:
       var width = imageWidth;
       var height = imageHeight;
       while (width > tileSize || height > tileSize) {
@@ -130,13 +130,13 @@ ol.source.Zoomify = function(opt_options) {
     crossOrigin: options.crossOrigin,
     logo: options.logo,
     reprojectionErrorThreshold: options.reprojectionErrorThreshold,
-    tileClass: ol.source.ZoomifyTile_,
+    tileClass: ol.source.PixelTile_,
     tileGrid: tileGrid,
     tileUrlFunction: tileUrlFunction
   });
 
 };
-ol.inherits(ol.source.Zoomify, ol.source.TileImage);
+ol.inherits(ol.source.Pixel, ol.source.TileImage);
 
 
 /**
@@ -149,7 +149,7 @@ ol.inherits(ol.source.Zoomify, ol.source.TileImage);
  * @param {ol.TileLoadFunctionType} tileLoadFunction Tile load function.
  * @private
  */
-ol.source.ZoomifyTile_ = function(
+ol.source.PixelTile_ = function(
     tileCoord, state, src, crossOrigin, tileLoadFunction) {
 
   ol.ImageTile.call(this, tileCoord, state, src, crossOrigin, tileLoadFunction);
@@ -159,31 +159,31 @@ ol.source.ZoomifyTile_ = function(
    * @type {Object.<string,
    *                HTMLCanvasElement|HTMLImageElement|HTMLVideoElement>}
    */
-  this.zoomifyImageByContext_ = {};
+  this.pixelImageByContext_ = {};
 
 };
-ol.inherits(ol.source.ZoomifyTile_, ol.ImageTile);
+ol.inherits(ol.source.PixelTile_, ol.ImageTile);
 
 
 /**
  * @inheritDoc
  */
-ol.source.ZoomifyTile_.prototype.getImage = function(opt_context) {
+ol.source.PixelTile_.prototype.getImage = function(opt_context) {
   var tileSize = ol.DEFAULT_TILE_SIZE;
   var key = opt_context !== undefined ?
       ol.getUid(opt_context).toString() : '';
-  if (key in this.zoomifyImageByContext_) {
-    return this.zoomifyImageByContext_[key];
+  if (key in this.pixelImageByContext_) {
+    return this.pixelImageByContext_[key];
   } else {
     var image = ol.ImageTile.prototype.getImage.call(this, opt_context);
     if (this.state == ol.Tile.State.LOADED) {
       if (image.width == tileSize && image.height == tileSize) {
-        this.zoomifyImageByContext_[key] = image;
+        this.pixelImageByContext_[key] = image;
         return image;
       } else {
         var context = ol.dom.createCanvasContext2D(tileSize, tileSize);
         context.drawImage(image, 0, 0);
-        this.zoomifyImageByContext_[key] = context.canvas;
+        this.pixelImageByContext_[key] = context.canvas;
         return context.canvas;
       }
     } else {
