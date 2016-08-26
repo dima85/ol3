@@ -4,6 +4,19 @@
 [![Coverage Status](https://coveralls.io/repos/openlayers/ol3/badge.svg?branch=master)](https://coveralls.io/r/openlayers/ol3?branch=master)
 [![OSGeo Project](https://img.shields.io/badge/OSGeo-Project-brightgreen.svg)](http://osgeo.org/)
 
+# Fork of [OpenLayers 3](http://openlayers.org/) with support of tiled image source with pixel based projection
+- New tile source located in ```/src/ol/source/Pixel.js```
+- Custom build configuration added to include new tile source in openlayers
+
+### To create custom build with Pixel source included
+- Checkout code
+- Install all prerequisites: JDK, JRE, Pyton, Node
+- run ```npm install``` in the root of project
+- run ```node tasks/build.js ol-custom-build.json build/ol-custom.js``` 
+- find ```ol-custom.js``` inside ```/build/``` folder
+- use it in your project
+
+
 [OpenLayers 3](http://openlayers.org/) is a high-performance, feature-packed library for creating interactive maps on the web. It can display map tiles, vector data and markers loaded from any source on any web page. OpenLayers has been developed to further the use of geographic information of all kinds. It is completely free, Open Source JavaScript, released under the 2-clause BSD License (also known as the FreeBSD).
 
 ## Getting Started

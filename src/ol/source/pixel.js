@@ -51,7 +51,6 @@ ol.source.Pixel = function(opt_options) {
         ]);
         tileSize += tileSize;
       }
-      console.log(tierSizeInTiles);
       break;
     case ol.source.PixelTierSizeCalculation.TRUNCATED:
       var width = imageWidth;
@@ -105,21 +104,6 @@ ol.source.Pixel = function(opt_options) {
     if (!tileCoord) {
       return undefined;
     } else {
-      // var tileCoordZ = tileCoord[0];
-      // var tileCoordX = tileCoord[1];
-      // var tileCoordY = -tileCoord[2] - 1;
-      // var tileIndex =
-      //     tileCoordX +
-      //     tileCoordY * tierSizeInTiles[tileCoordZ][0] +
-      //     tileCountUpToTier[tileCoordZ];
-      // //var tileGroup = (tileIndex / ol.DEFAULT_TILE_SIZE) | 0;
-      // //return url + 'TileGroup' + tileGroup + '/' +
-      // //    tileCoordZ + '-' + tileCoordX + '-' + tileCoordY + '.jpg';
-      // console.log(tileCoord);
-      // return url
-      //   .replace('{z}', (tileCoordZ).toString())
-      //   .replace('{x}', (tileCoordX).toString())
-      //   .replace('{y}', (tileCoordY).toString());
       return urlFunction(tileCoord, pixelRatio, projection);
     }
   }
