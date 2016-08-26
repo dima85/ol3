@@ -2,17 +2,34 @@
   "exports": [
     "ol.Map",
     "ol.Map#addControl",
+    "ol.Map#on",
+    "ol.Map#getView",
+    "ol.Map#getLayers",
+
     "ol.View",
-    "ol.control.defaults",
+    "ol.View#getRotation",
+    "ol.View#getZoom",
+    "ol.View#getCenter",
+    "ol.View#setRotation",
+    "ol.View#setZoom",
+    "ol.View#setCenter",
+
     "ol.layer.Tile",
+    "ol.layer.Tile#setSource",
+
     "ol.source.Pixel",
     "ol.proj.Projection",
+
+    "ol.control.defaults",
     "ol.control.OverviewMap",
     "ol.control.ZoomSlider",
     "ol.control.MousePosition",
     "ol.control.ScaleLine",
     "ol.proj.addProjection",
-    "ol.proj.addCoordinateTransforms"
+    "ol.proj.addCoordinateTransforms",
+
+    "ol.Collection",
+    "ol.Collection#getArray"
   ],
   "compile": {
     "externs": [
