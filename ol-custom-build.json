@@ -6,6 +6,7 @@
     "ol.Map#getView",
     "ol.Map#getLayers",
     "ol.Map#updateSize",
+    "ol.Map#addLayer",
 
     "ol.View",
     "ol.View#getRotation",
