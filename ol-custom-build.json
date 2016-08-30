@@ -17,7 +17,9 @@
     "ol.View#setCenter",
 
     "ol.layer.Tile",
-    "ol.layer.Tile#setSource",
+    "ol.layer.Layer#setSource",
+    "ol.layer.Layer#getVisible",
+    "ol.layer.Layer#setVisible",
 
     "ol.source.Pixel",
     "ol.proj.Projection",
