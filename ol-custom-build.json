@@ -63,7 +63,8 @@
     "ol.Feature#setStyle",
 
     "ol.geom.MultiPoint",
-    "ol.geom.Polygon"
+    "ol.geom.Polygon",
+    "ol.geom.Circle"
   ],
   "compile": {
     "externs": [
