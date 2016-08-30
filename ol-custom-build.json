@@ -8,6 +8,8 @@
     "ol.Map#updateSize",
     "ol.Map#addLayer",
     "ol.Map#render",
+    "ol.Map#addInteraction",
+    "ol.Map#removeInteraction",
 
     "ol.View",
     "ol.View#getRotation",
@@ -64,7 +66,14 @@
 
     "ol.geom.MultiPoint",
     "ol.geom.Polygon",
-    "ol.geom.Circle"
+    "ol.geom.Circle",
+
+    "ol.interaction.Modify",
+    "ol.interaction.Draw",
+
+    "ol.events.condition.shiftKeyOnly",
+    "ol.events.condition.singleClick"
+
   ],
   "compile": {
     "externs": [
