@@ -7,6 +7,7 @@
     "ol.Map#getLayers",
     "ol.Map#updateSize",
     "ol.Map#addLayer",
+    "ol.Map#render",
 
     "ol.View",
     "ol.View#getRotation",
@@ -17,23 +18,52 @@
     "ol.View#setCenter",
 
     "ol.layer.Tile",
+    "ol.layer.Vector",
     "ol.layer.Layer#setSource",
+    "ol.layer.Layer#getSource",
     "ol.layer.Layer#getVisible",
     "ol.layer.Layer#setVisible",
+    "ol.layer.Layer#setMap",
 
     "ol.source.Pixel",
-    "ol.proj.Projection",
+
+    "ol.source.Vector",
+    "ol.source.Vector#removeFeature",
+    "ol.source.Vector#getFeatures",
+    "ol.source.Vector#getFeatureById",
+    "ol.source.Vector#addFeatures",
+    "ol.source.Vector#addFeature",
+
+
+    "ol.style.Style",
+    "ol.style.Fill",
+    "ol.style.Stroke",
+    "ol.style.Circle",
 
     "ol.control.defaults",
     "ol.control.OverviewMap",
     "ol.control.ZoomSlider",
     "ol.control.MousePosition",
     "ol.control.ScaleLine",
+
+    "ol.proj.Projection",
     "ol.proj.addProjection",
     "ol.proj.addCoordinateTransforms",
 
     "ol.Collection",
-    "ol.Collection#getArray"
+    "ol.Collection#getArray",
+    "ol.Collection#push",
+    "ol.Collection#pop",
+    "ol.Collection#remove",
+    "ol.Collection#clear",
+
+    "ol.Feature",
+    "ol.Feature#getGeometryName",
+    "ol.Feature#setGeometryName",
+    "ol.Feature#setStyle",
+
+    "ol.geom.MultiPoint",
+    "ol.geom.Polygon"
   ],
   "compile": {
     "externs": [
