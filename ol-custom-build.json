@@ -21,6 +21,7 @@
 
     "ol.layer.Tile",
     "ol.layer.Vector",
+    "ol.source.Cluster",
     "ol.layer.Layer#setSource",
     "ol.layer.Layer#getSource",
     "ol.layer.Layer#getVisible",
@@ -41,6 +42,7 @@
     "ol.style.Fill",
     "ol.style.Stroke",
     "ol.style.Circle",
+    "ol.style.Text",
 
     "ol.control.defaults",
     "ol.control.OverviewMap",
@@ -68,6 +70,7 @@
     "ol.geom.Polygon",
     "ol.geom.Circle",
     "ol.geom.LineString",
+    "ol.geom.Point",
 
     "ol.interaction.Modify",
     "ol.interaction.Draw",
