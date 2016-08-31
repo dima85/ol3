@@ -67,6 +67,7 @@
     "ol.geom.MultiPoint",
     "ol.geom.Polygon",
     "ol.geom.Circle",
+    "ol.geom.LineString",
 
     "ol.interaction.Modify",
     "ol.interaction.Draw",
