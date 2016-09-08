@@ -88,6 +88,9 @@ ol.interaction.DragPan.handleDragEvent_ = function(mapBrowserEvent) {
     view.setCenter(center);
   }
   this.lastCentroid = centroid;
+  console.log('drag!!!!!!!!!!!!!!!!!');
+  //mapBrowserEvent.map.render();
+  mapBrowserEvent.map.dispatchEvent(new ol.MapEvent('move', mapBrowserEvent.map));
 };
 
 
@@ -162,4 +165,4 @@ ol.interaction.DragPan.handleDownEvent_ = function(mapBrowserEvent) {
 /**
  * @inheritDoc
  */
-ol.interaction.DragPan.prototype.shouldStopEvent = ol.functions.FALSE;
+ol.interaction.DragPan.prototype.shouldStopEvent = ol.functions.TRUE;
