@@ -22,7 +22,14 @@ ol.MapEventType = {
    * @event ol.MapEvent#moveend
    * @api stable
    */
-  MOVEEND: 'moveend'
+  MOVEEND: 'moveend',
+
+  /**
+   * Triggered when viewport of a map is changed.
+   * @event ol.MapEvent#move
+   * @api definiens
+   */
+  MOVE: 'move'
 
 };
 

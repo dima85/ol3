@@ -6,6 +6,7 @@ goog.require('ol.coordinate');
 goog.require('ol.events.condition');
 goog.require('ol.functions');
 goog.require('ol.interaction.Pointer');
+goog.require('ol.MapEventType');
 
 
 /**
@@ -88,9 +89,10 @@ ol.interaction.DragPan.handleDragEvent_ = function(mapBrowserEvent) {
     view.setCenter(center);
   }
   this.lastCentroid = centroid;
-  console.log('drag!!!!!!!!!!!!!!!!!');
+
+  //TODO: load tiles. This event fires to notify everybody that viewport is changed
   //mapBrowserEvent.map.render();
-  mapBrowserEvent.map.dispatchEvent(new ol.MapEvent('move', mapBrowserEvent.map));
+  mapBrowserEvent.map.dispatchEvent(new ol.MapEvent(ol.MapEventType.MOVE, mapBrowserEvent.map));
 };
 
 
@@ -165,4 +167,4 @@ ol.interaction.DragPan.handleDownEvent_ = function(mapBrowserEvent) {
 /**
  * @inheritDoc
  */
-ol.interaction.DragPan.prototype.shouldStopEvent = ol.functions.TRUE;
+ol.interaction.DragPan.prototype.shouldStopEvent = ol.functions.FALSE;
