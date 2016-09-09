@@ -55,6 +55,7 @@
     "ol.proj.addCoordinateTransforms",
 
     "ol.Collection",
+    "ol.Collection#extend",
     "ol.Collection#getArray",
     "ol.Collection#push",
     "ol.Collection#pop",
@@ -72,8 +73,13 @@
     "ol.geom.LineString",
     "ol.geom.Point",
 
+    "ol.interaction.defaults",
     "ol.interaction.Modify",
     "ol.interaction.Draw",
+    "ol.interaction.Snap",
+    "ol.interaction.Select",
+    "ol.interaction.Select#getFeatures",
+    "ol.interaction.Translate",
 
     "ol.events.condition.shiftKeyOnly",
     "ol.events.condition.singleClick"
