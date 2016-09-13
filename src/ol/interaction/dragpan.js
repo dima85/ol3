@@ -6,7 +6,7 @@ goog.require('ol.coordinate');
 goog.require('ol.events.condition');
 goog.require('ol.functions');
 goog.require('ol.interaction.Pointer');
-goog.require('ol.MapEventType');
+goog.require('ol.MapEvent');
 
 
 /**
@@ -92,7 +92,7 @@ ol.interaction.DragPan.handleDragEvent_ = function(mapBrowserEvent) {
 
   //TODO: load tiles. This event fires to notify everybody that viewport is changed
   //mapBrowserEvent.map.render();
-  mapBrowserEvent.map.dispatchEvent(new ol.MapEvent(ol.MapEventType.MOVE, mapBrowserEvent.map));
+  mapBrowserEvent.map.dispatchEvent(new ol.MapEvent(ol.MapEvent.Type.MOVE, mapBrowserEvent.map));
 };
 
 
