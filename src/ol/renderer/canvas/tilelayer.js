@@ -139,8 +139,8 @@ ol.renderer.canvas.TileLayer.prototype.prepareFrame = function(
   for (x = tileRange.minX; x <= tileRange.maxX; ++x) {
     for (y = tileRange.minY; y <= tileRange.maxY; ++y) {
       tile = tileSource.getTile(z, x, y, pixelRatio, projection);
-      if (!drawableTile(tile) && tile.interimTile) {
-        tile = tile.interimTile;
+      if (!drawableTile(tile)) {
+        tile = tile.getInterimTile();
       }
       if (drawableTile(tile)) {
         tilesToDrawByZ[z][tile.tileCoord.toString()] = tile;
@@ -189,7 +189,7 @@ ol.renderer.canvas.TileLayer.prototype.prepareFrame = function(
 /**
  * @param {ol.Pixel} pixel Pixel.
  * @param {olx.FrameState} frameState FrameState.
- * @param {function(this: S, ol.layer.Layer, ol.Color): T} callback Layer
+ * @param {function(this: S, ol.layer.Layer, (Uint8ClampedArray|Uint8Array)): T} callback Layer
  *     callback.
  * @param {S} thisArg Value to use as `this` when executing `callback`.
  * @return {T|undefined} Callback result.

@@ -1,7 +1,5 @@
 goog.provide('ol.style.Stroke');
 
-goog.require('goog.crypt');
-goog.require('goog.crypt.Md5');
 goog.require('ol.color');
 
 
@@ -61,6 +59,24 @@ ol.style.Stroke = function(opt_options) {
    * @type {string|undefined}
    */
   this.checksum_ = undefined;
+};
+
+
+/**
+ * Clones the style.
+ * @return {ol.style.Stroke} The cloned style.
+ * @api
+ */
+ol.style.Stroke.prototype.clone = function() {
+  var color = this.getColor();
+  return new ol.style.Stroke({
+    color: (color && color.slice) ? color.slice() : color || undefined,
+    lineCap: this.getLineCap(),
+    lineDash: this.getLineDash() ? this.getLineDash().slice() : undefined,
+    lineJoin: this.getLineJoin(),
+    miterLimit: this.getMiterLimit(),
+    width: this.getWidth()
+  });
 };
 
 
@@ -207,7 +223,7 @@ ol.style.Stroke.prototype.setWidth = function(width) {
  */
 ol.style.Stroke.prototype.getChecksum = function() {
   if (this.checksum_ === undefined) {
-    var raw = 's' +
+    this.checksum_ = 's' +
         (this.color_ ?
             ol.color.asString(this.color_) : '-') + ',' +
         (this.lineCap_ !== undefined ?
@@ -220,10 +236,6 @@ ol.style.Stroke.prototype.getChecksum = function() {
             this.miterLimit_.toString() : '-') + ',' +
         (this.width_ !== undefined ?
             this.width_.toString() : '-');
-
-    var md5 = new goog.crypt.Md5();
-    md5.update(raw);
-    this.checksum_ = goog.crypt.byteArrayToString(md5.digest());
   }
 
   return this.checksum_;

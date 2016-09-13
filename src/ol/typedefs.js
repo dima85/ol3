@@ -106,7 +106,7 @@ ol.CircleRenderOptions;
  * red, green, and blue should be integers in the range 0..255 inclusive.
  * alpha should be a float in the range 0..1 inclusive. If no alpha value is
  * given then `1` will be used.
- * @typedef {Array.<number>|Uint8Array|Uint8ClampedArray}
+ * @typedef {Array.<number>}
  */
 ol.Color;
 
@@ -274,8 +274,8 @@ ol.ImageLoadFunctionType;
 
 
 /**
- * @typedef {{x: number, xunits: (ol.style.IconAnchorUnits|undefined),
- *            y: number, yunits: (ol.style.IconAnchorUnits|undefined)}}
+ * @typedef {{x: number, xunits: (ol.style.Icon.AnchorUnits|undefined),
+ *            y: number, yunits: (ol.style.Icon.AnchorUnits|undefined)}}
  */
 ol.KMLVec2_;
 
